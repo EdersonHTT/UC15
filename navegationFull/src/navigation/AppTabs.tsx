@@ -2,7 +2,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
 import InicioStack from './InicioStack';
-import MangasScreen from '../screens/MangasScreen';
 import ConfigurationsScreen from '../screens/ConfigurationsScreen';
 import type { AppTabParamList } from '../types/navigation';
 
@@ -25,11 +24,12 @@ export default function AppTabs() {
 
       <Tab.Screen
         name="Mangas"
-        component={MangasScreen}
+        component={InicioStack}
         options={{
+          headerShown: false,
           title: 'Mangas',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="heart-outline" color={color} size={size} />
+            <Ionicons name="book-outline" color={color} size={size} />
           ),
         }}
       />

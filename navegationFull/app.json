@@ -6,12 +6,18 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "backgroundColor": "#111827",
     "ios": {
       "supportsTablet": true
     },
     "android": {
+      "backgroundColor": "#111827",
+      "statusBar": {
+        "backgroundColor": "#111827",
+        "barStyle": "light-content"
+      },
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#111827",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"

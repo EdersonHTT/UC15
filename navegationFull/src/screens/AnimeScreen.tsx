@@ -2,19 +2,16 @@ import { View, Text, FlatList, Pressable, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import type { InicioStackParamList } from '../types/navigation';
-import { useState } from 'react';
 import { animes } from '../data/animes';
+import Card from '../components/Card';
 
 type Props = NativeStackScreenProps<InicioStackParamList, 'Anime'>;
 
 export default function AnimeScreen({ navigation }: Props) {
-    
-
-    
   return (
     <View style={styles.container}>
       <Text style={styles.titulo}>Anime Atuais</Text>
-      <Text>Toque em um anime para ver os detalhes.</Text>
+      <Text style={styles.subtitulo}>Toque em um anime para ver os detalhes.</Text>
 
       <FlatList
         data={animes}
@@ -27,9 +24,7 @@ export default function AnimeScreen({ navigation }: Props) {
               navigation.navigate('Detalhes', { animeId: item.id })
             }
           >
-            <Text style={styles.nome}>{item.title}</Text>
-            <Text>R$ {item.price.toFixed(2).replace('.', ',')}</Text>
-            <Text style={styles.link}>Ver detalhes →</Text>
+            <Card anime={item} />
           </Pressable>
         )}
       />
@@ -38,17 +33,28 @@ export default function AnimeScreen({ navigation }: Props) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 16, backgroundColor: '#F4F6F8' },
-  titulo: { fontSize: 26, fontWeight: 'bold', marginBottom: 8 },
-  lista: { paddingVertical: 16, gap: 12 },
-  card: {
-    backgroundColor: '#FFFFFF',
-    padding: 18,
-    borderRadius: 12,
-    borderWidth: 1,
-    borderColor: '#E1E5EA',
-    gap: 8,
+  container: {
+    flex: 1,
+    padding: 16,
+    backgroundColor: '#0F172A',
   },
-  nome: { fontSize: 18, fontWeight: 'bold' },
-  link: { color: '#1454BD', fontWeight: 'bold' },
+  titulo: {
+    fontSize: 28,
+    fontWeight: '800',
+    marginBottom: 6,
+    color: '#F8FAFC',
+  },
+  subtitulo: {
+    color: '#CBD5E1',
+    marginBottom: 10,
+    fontSize: 14,
+  },
+  lista: {
+    paddingVertical: 16,
+    gap: 12,
+  },
+  card: {
+    borderRadius: 16,
+    overflow: 'hidden',
+  },
 });

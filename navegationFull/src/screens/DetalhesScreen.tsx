@@ -13,7 +13,7 @@ export default function DetalhesScreen({ navigation, route }: Props) {
   if (!anime) {
     return (
       <View style={styles.container}>
-        <Text>Anime não encontrado.</Text>
+        <Text style={styles.emptyText}>Anime não encontrado.</Text>
         <Button title="Voltar" onPress={() => navigation.goBack()} />
       </View>
     );
@@ -21,11 +21,9 @@ export default function DetalhesScreen({ navigation, route }: Props) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>{anime.title}</Text>
-      <Text style={styles.preco}>
-        R$ {anime.price.toFixed(2).replace('.', ',')}
-      </Text>
-      <Text>{anime.description}</Text>
+      <Text style={styles.titulo}>{anime.title.romaji}</Text>
+      <Text style={styles.preco}>{anime.title.english}</Text>
+      <Text style={styles.descricao}>{anime.description}</Text>
       <Button title="Voltar para a lista" onPress={() => navigation.goBack()} />
     </View>
   );
@@ -38,8 +36,27 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 24,
     gap: 20,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#0F172A',
   },
-  titulo: { fontSize: 26, fontWeight: 'bold', textAlign: 'center' },
-  preco: { fontSize: 22, color: '#1454BD', fontWeight: 'bold' },
+  titulo: {
+    fontSize: 28,
+    fontWeight: '800',
+    textAlign: 'center',
+    color: '#F8FAFC',
+  },
+  preco: {
+    fontSize: 20,
+    color: '#A78BFA',
+    fontWeight: '700',
+  },
+  descricao: {
+    fontSize: 15,
+    lineHeight: 24,
+    textAlign: 'center',
+    color: '#E2E8F0',
+  },
+  emptyText: {
+    color: '#F8FAFC',
+    fontSize: 18,
+  },
 });

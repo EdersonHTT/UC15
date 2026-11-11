@@ -12,7 +12,19 @@ export default function AppDrawer() {
   return (
     <Drawer.Navigator
       initialRouteName="Animes"
-      screenOptions={{ headerShown: false }}
+      screenOptions={{
+        headerShown: false,
+        drawerStyle: {
+          backgroundColor: '#111827',
+          width: 280,
+        },
+        drawerActiveTintColor: '#A78BFA',
+        drawerInactiveTintColor: '#E2E8F0',
+        drawerLabelStyle: {
+          fontWeight: '700',
+          fontSize: 15,
+        },
+      }}
     >
       <Drawer.Screen
         name="Animes"
@@ -31,7 +43,7 @@ export default function AppDrawer() {
           title: 'Mangas',
           headerShown: true,
           drawerIcon: ({ color, size }) => (
-            <Ionicons name="heart-outline" color={color} size={size} />
+            <Ionicons name="book-outline" color={color} size={size} />
           ),
         }}
       />
